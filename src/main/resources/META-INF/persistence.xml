@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="JPU_BOOKING" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>co.edu.sena.booking.jpa.entities.ReservaCliente</class>
+    <class>co.edu.sena.booking.jpa.entities.Calificacion</class>
+    <class>co.edu.sena.booking.jpa.entities.Foto</class>
+    <class>co.edu.sena.booking.jpa.entities.Lugar</class>
+    <class>co.edu.sena.booking.jpa.entities.Rol</class>
+    <class>co.edu.sena.booking.jpa.entities.Departamento</class>
+    <class>co.edu.sena.booking.jpa.entities.Reserva</class>
+    <class>co.edu.sena.booking.jpa.entities.Municipio</class>
+    <class>co.edu.sena.booking.jpa.entities.Alojamiento</class>
+    <class>co.edu.sena.booking.jpa.entities.RolUsuario</class>
+    <class>co.edu.sena.booking.jpa.entities.Usuario</class>
+    <class>co.edu.sena.booking.jpa.entities.Tipolugar</class>
+    <class>co.edu.sena.booking.jpa.entities.Tipoalojamiento</class>
+    <class>co.edu.sena.booking.jpa.entities.Tipoidentificacion</class>
+    <class>co.edu.sena.booking.jpa.entities.Pais</class>
+    <validation-mode>NONE</validation-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_booking?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>

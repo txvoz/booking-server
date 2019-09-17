@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.init;
 
+import co.edu.sena.booking.apis.ApiRol;
 import spark.Spark;
 
 /**
@@ -24,6 +25,7 @@ public class Main {
         //Por Ejemplo
         //ApiRol.singleton()
         //ApiUsuario.singleton();
+        ApiRol.singleton();
     }
     
 }
