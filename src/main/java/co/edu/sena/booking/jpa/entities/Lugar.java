@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -48,34 +49,44 @@ public class Lugar implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "lugId", nullable = false)
+    @Expose
     private Integer lugId;
     @Basic(optional = false)
     @Column(name = "lugNombre", nullable = false, length = 45)
+    @Expose
     private String lugNombre;
     @Basic(optional = false)
     @Column(name = "lugDireccion", nullable = false, length = 45)
+    @Expose
     private String lugDireccion;
     @Basic(optional = false)
     @Column(name = "lugTelefono", nullable = false, length = 45)
+    @Expose
     private String lugTelefono;
     @Basic(optional = false)
     @Column(name = "lugCorreo", nullable = false, length = 45)
+    @Expose
     private String lugCorreo;
     @Basic(optional = false)
     @Column(name = "lugLatitud", nullable = false, length = 45)
+    @Expose
     private String lugLatitud;
     @Basic(optional = false)
     @Column(name = "lugLongitud", nullable = false, length = 45)
+    @Expose
     private String lugLongitud;
     @Basic(optional = false)
     @Lob
     @Column(name = "lugDescripcion", nullable = false, length = 16777215)
+    @Expose
     private String lugDescripcion;
     @JoinColumn(name = "fkMunicipio", referencedColumnName = "munId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Municipio fkMunicipio;
     @JoinColumn(name = "fkTipoLugar", referencedColumnName = "tluId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Tipolugar fkTipoLugar;
     @OneToMany(mappedBy = "fkLugar", fetch = FetchType.EAGER)
     private List<Foto> fotoList;
