@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -45,6 +46,7 @@ public class Alojamiento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "aloId", nullable = false)
+    @Expose
     private Integer aloId;
     @Basic(optional = false)
     @Column(name = "aloCodigo", nullable = false, length = 11)
