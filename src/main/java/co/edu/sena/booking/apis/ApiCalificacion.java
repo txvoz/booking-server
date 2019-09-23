@@ -12,8 +12,10 @@ import co.edu.sena.booking.jpa.entities.Calificacion;
 import co.edu.sena.booking.utils.JsonTransformer;
 import co.edu.sena.booking.utils.Utils;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import java.util.Hashtable;
 import java.util.List;
+import javax.persistence.PersistenceException;
 import spark.Request;
 import spark.Response;
 
@@ -48,17 +50,65 @@ public class ApiCalificacion extends BasicApi implements IApi {
 
     @Override
     public Object create(Request rq, Response rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hashtable<String, Object> retorno = new Hashtable<>();
+        try {
+            String body = rq.body();
+            Calificacion nEntity = gson.fromJson(body, Calificacion.class);
+            calificacionController.create(nEntity);
+            retorno.put("status", 201);
+            retorno.put("message", "Registro creado con exito!");
+            retorno.put("data", nEntity);
+        } catch (JsonSyntaxException | PersistenceException e) {
+            rs.status(400);
+            retorno.put("status", 400);
+            retorno.put("message", e.getMessage());
+        }
+        return retorno;
     }
 
     @Override
     public Object update(Request rq, Response rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hashtable<String, Object> retorno = new Hashtable<>();
+        try {
+            int id = Integer.parseInt(rq.params("id"));
+            String body = rq.body();
+            Calificacion nEntity = gson.fromJson(body, Calificacion.class);
+            Calificacion oEntity = calificacionController.findCalificacion(id);
+            if (oEntity != null) {
+                oEntity.setCalValoracion(nEntity.getCalValoracion());
+                oEntity.setCalComentario(nEntity.getCalComentario());
+                calificacionController.edit(oEntity);
+                rs.status(201);
+                retorno.put("status", 201);
+                retorno.put("message", "Registro con el id@" + id + " actualizado!");
+                retorno.put("data", oEntity);
+            } else {
+                rs.status(404);
+                retorno.put("status", 404);
+                retorno.put("message", "Registro con el id@" + id + " no exite!");
+            }
+        } catch (Exception e) {
+            rs.status(400);
+            retorno.put("status", 400);
+            retorno.put("message", e.getMessage());
+        }
+        return retorno;
     }
 
     @Override
     public Object delete(Request rq, Response rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hashtable<String, Object> retorno = new Hashtable<>();
+        try {
+            int id = Integer.parseInt(rq.params("id"));
+            calificacionController.destroy(id);
+            retorno.put("status", 200);
+            retorno.put("message", "Registro eliminado con exito!");
+        } catch (Exception e) {
+            rs.status(400);
+            retorno.put("status", 400);
+            retorno.put("message", e.getMessage());
+        }
+        return retorno;
     }
 
     @Override
