@@ -19,6 +19,7 @@ import co.edu.sena.booking.jpa.entities.Alojamiento;
 import co.edu.sena.booking.jpa.entities.Lugar;
 import co.edu.sena.booking.jpa.controllers.exceptions.IllegalOrphanException;
 import co.edu.sena.booking.jpa.controllers.exceptions.NonexistentEntityException;
+import co.edu.sena.booking.utils.Utils;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -55,7 +56,9 @@ public class LugarJpaController implements Serializable {
             }
             Tipolugar fkTipoLugar = lugar.getFkTipoLugar();
             if (fkTipoLugar != null) {
-                fkTipoLugar = em.getReference(fkTipoLugar.getClass(), fkTipoLugar.getTluId());
+                TipolugarJpaController tLugarCtrl = new TipolugarJpaController(Utils.getEM());
+                fkTipoLugar = tLugarCtrl.findTipolugar(fkTipoLugar.getTluId());
+//                fkTipoLugar = em.getReference(fkTipoLugar.getClass(), fkTipoLugar.getTluId());
                 lugar.setFkTipoLugar(fkTipoLugar);
             }
             List<Foto> attachedFotoList = new ArrayList<Foto>();
