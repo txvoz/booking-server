@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -41,12 +42,15 @@ public class Tipoidentificacion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "tidId", nullable = false)
+    @Expose
     private Integer tidId;
     @Basic(optional = false)
     @Column(name = "tipSigla", nullable = false, length = 45)
+     @Expose
     private String tipSigla;
     @Basic(optional = false)
     @Column(name = "tipNombre", nullable = false, length = 45)
+     @Expose
     private String tipNombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkTipoIdentificacion", fetch = FetchType.EAGER)
     private List<Usuario> usuarioList;
