@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -49,44 +50,57 @@ public class Reserva implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic(optional = false)    
     @Column(name = "resId", nullable = false)
+    @Expose
     private Integer resId;
     @Basic(optional = false)
     @Column(name = "resFechaRegistro", nullable = false)
     @Temporal(TemporalType.DATE)
+    @Expose
     private Date resFechaRegistro;
     @Basic(optional = false)
     @Column(name = "resFechaLlegada", nullable = false)
     @Temporal(TemporalType.DATE)
+    @Expose
     private Date resFechaLlegada;
     @Basic(optional = false)
     @Column(name = "resFechaSalida", nullable = false)
     @Temporal(TemporalType.DATE)
+    @Expose
     private Date resFechaSalida;
     @Column(name = "resFechaChecking", length = 45)
+    @Expose
     private String resFechaChecking;
     @Column(name = "resFechaCheckout", length = 45)
+    @Expose
     private String resFechaCheckout;
     @Basic(optional = false)
     @Column(name = "resEstado", nullable = false, length = 2)
+    @Expose
     private String resEstado;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "resPago", precision = 22)
+    @Expose
     private Double resPago;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkReserva", fetch = FetchType.EAGER)
+    @Expose
     private List<ReservaCliente> reservaClienteList;
     @JoinColumn(name = "fkAlojamiento", referencedColumnName = "aloId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Alojamiento fkAlojamiento;
     @JoinColumn(name = "fkCliente", referencedColumnName = "usuId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Usuario fkCliente;
     @JoinColumn(name = "fkUsuarioChecking", referencedColumnName = "usuId")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Expose
     private Usuario fkUsuarioChecking;
     @JoinColumn(name = "fkUsuarioCheckout", referencedColumnName = "usuId")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Expose
     private Usuario fkUsuarioCheckout;
 
     public Reserva() {
