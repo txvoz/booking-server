@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -41,6 +42,7 @@ public class Pais implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "paiId", nullable = false)
+    @Expose
     private Integer paiId;
     @Basic(optional = false)
     @Column(name = "paiNombre", nullable = false, length = 45)
@@ -121,5 +123,5 @@ public class Pais implements Serializable {
     public String toString() {
         return "co.edu.sena.booking.apis.entities.Pais[ paiId=" + paiId + " ]";
     }
-    
+
 }
