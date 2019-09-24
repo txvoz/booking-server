@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.init;
 
+import co.edu.sena.booking.apis.ApiDepartamento;
 import co.edu.sena.booking.apis.ApiPais;
 import co.edu.sena.booking.apis.ApiRol;
 import spark.Spark;
@@ -28,6 +29,7 @@ public class Main {
         //ApiUsuario.singleton();
         ApiRol.singleton();
         ApiPais.singleton();
+        ApiDepartamento.singleton();
         
     }
     

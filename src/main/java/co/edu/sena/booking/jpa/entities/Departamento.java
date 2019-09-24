@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -42,6 +43,7 @@ public class Departamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "depId", nullable = false)
+    @Expose
     private Integer depId;
     @Basic(optional = false)
     @Column(name = "depNombre", nullable = false, length = 45)
@@ -121,5 +123,5 @@ public class Departamento implements Serializable {
     public String toString() {
         return "co.edu.sena.booking.apis.entities.Departamento[ depId=" + depId + " ]";
     }
-    
+
 }
