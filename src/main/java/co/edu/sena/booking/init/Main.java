@@ -7,6 +7,7 @@ package co.edu.sena.booking.init;
 
 import co.edu.sena.booking.apis.ApiLugar;
 import co.edu.sena.booking.apis.ApiReserva;
+import co.edu.sena.booking.apis.ApiDepartamento;
 import co.edu.sena.booking.apis.ApiPais;
 import co.edu.sena.booking.apis.ApiRol;
 import spark.Spark;
@@ -29,6 +30,7 @@ public class Main {
         ApiLugar.singleton();
         ApiReserva.singleton();
         ApiPais.singleton();
+        ApiDepartamento.singleton();
     }
 
 }
