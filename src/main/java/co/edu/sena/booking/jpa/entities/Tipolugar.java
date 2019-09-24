@@ -106,7 +106,7 @@ public class Tipolugar implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Tipolugar[ tluId=" + tluId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Tipolugar[ tluId=" + tluId + " ]";
     }
     
 }

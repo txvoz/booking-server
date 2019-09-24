@@ -192,7 +192,7 @@ public class Alojamiento implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Alojamiento[ aloId=" + aloId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Alojamiento[ aloId=" + aloId + " ]";
     }
     
 }

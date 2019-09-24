@@ -20,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -28,12 +29,15 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author USER
  */
 @Entity
-@Table(name = "rol", catalog = "db_booking", schema = "")
+@Table(name = "rol", catalog = "db_booking", schema = "", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"rolNombre"})})
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r")
     , @NamedQuery(name = "Rol.findByRolId", query = "SELECT r FROM Rol r WHERE r.rolId = :rolId")
     , @NamedQuery(name = "Rol.findByRolNombre", query = "SELECT r FROM Rol r WHERE r.rolNombre = :rolNombre")})
+
+
 public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -109,7 +113,7 @@ public class Rol implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Rol[ rolId=" + rolId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Rol[ rolId=" + rolId + " ]";
     }
     
 }

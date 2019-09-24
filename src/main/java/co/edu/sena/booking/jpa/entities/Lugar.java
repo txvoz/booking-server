@@ -220,7 +220,7 @@ public class Lugar implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Lugar[ lugId=" + lugId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Lugar[ lugId=" + lugId + " ]";
     }
     
 }

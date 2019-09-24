@@ -22,10 +22,8 @@ public class Main {
         //*************
         Spark.init();
         //Publicacion de Apis/Servicios
-        //Por Ejemplo
-        //ApiRol.singleton()
-        //ApiUsuario.singleton();
         ApiRol.singleton();
+        //Aqui se agregan etc servicios
     }
     
 }

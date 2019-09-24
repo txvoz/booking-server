@@ -5,6 +5,8 @@
  */
 package co.edu.sena.booking.jpa.controllers;
 
+import co.edu.sena.booking.jpa.controllers.exceptions.IllegalOrphanException;
+import co.edu.sena.booking.jpa.controllers.exceptions.NonexistentEntityException;
 import co.edu.sena.booking.jpa.entities.Alojamiento;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -18,8 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 import co.edu.sena.booking.jpa.entities.Foto;
 import co.edu.sena.booking.jpa.entities.Reserva;
-import co.edu.sena.booking.jpa.controllers.exceptions.IllegalOrphanException;
-import co.edu.sena.booking.jpa.controllers.exceptions.NonexistentEntityException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 

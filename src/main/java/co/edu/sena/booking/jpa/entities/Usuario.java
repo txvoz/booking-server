@@ -235,7 +235,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Usuario[ usuId=" + usuId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Usuario[ usuId=" + usuId + " ]";
     }
     
 }

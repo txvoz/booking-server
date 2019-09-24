@@ -119,7 +119,7 @@ public class Departamento implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Departamento[ depId=" + depId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Departamento[ depId=" + depId + " ]";
     }
     
 }

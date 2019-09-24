@@ -134,7 +134,7 @@ public class Municipio implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Municipio[ munId=" + munId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Municipio[ munId=" + munId + " ]";
     }
     
 }

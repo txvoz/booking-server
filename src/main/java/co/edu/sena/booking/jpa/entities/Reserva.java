@@ -231,7 +231,7 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Reserva[ resId=" + resId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Reserva[ resId=" + resId + " ]";
     }
     
 }

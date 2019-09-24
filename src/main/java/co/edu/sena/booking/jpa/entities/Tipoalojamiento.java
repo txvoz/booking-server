@@ -106,7 +106,7 @@ public class Tipoalojamiento implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Tipoalojamiento[ talId=" + talId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Tipoalojamiento[ talId=" + talId + " ]";
     }
     
 }

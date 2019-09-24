@@ -98,7 +98,7 @@ public class ReservaCliente implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.ReservaCliente[ ruId=" + ruId + " ]";
+        return "co.edu.sena.booking.jpa.entities.ReservaCliente[ ruId=" + ruId + " ]";
     }
     
 }

@@ -119,7 +119,7 @@ public class Tipoidentificacion implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Tipoidentificacion[ tidId=" + tidId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Tipoidentificacion[ tidId=" + tidId + " ]";
     }
     
 }

@@ -119,7 +119,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Pais[ paiId=" + paiId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Pais[ paiId=" + paiId + " ]";
     }
     
 }

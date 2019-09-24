@@ -19,17 +19,19 @@ import spark.Response;
 
 public class ApiRol extends BasicApi implements IApi {
 
+    //Atributos 
     private static ApiRol instance = null;
     private String path = "/rol";
     private Gson gson = null;
     private RolJpaController rolController = null;
 
+    //Constructor
     private ApiRol() {
         rolController = new RolJpaController(Utils.getEM());
         gson = JsonTransformer.singleton().getGson();
         init();
     }
-
+    //Metodo para traer el objeto
     public static ApiRol singleton() {
         if (instance == null) {
             instance = new ApiRol();
@@ -37,6 +39,8 @@ public class ApiRol extends BasicApi implements IApi {
         return instance;
     }
 
+    //Metodos que provienen del IApi
+    
     @Override
     public String getPath() {
         return path;
@@ -142,5 +146,4 @@ public class ApiRol extends BasicApi implements IApi {
         }
         return retorno;
     }
-
 }

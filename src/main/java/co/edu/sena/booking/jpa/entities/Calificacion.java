@@ -127,7 +127,7 @@ public class Calificacion implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Calificacion[ calId=" + calId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Calificacion[ calId=" + calId + " ]";
     }
     
 }

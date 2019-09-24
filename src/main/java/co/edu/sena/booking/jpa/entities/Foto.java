@@ -140,7 +140,7 @@ public class Foto implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.booking.apis.entities.Foto[ fotId=" + fotId + " ]";
+        return "co.edu.sena.booking.jpa.entities.Foto[ fotId=" + fotId + " ]";
     }
     
 }
