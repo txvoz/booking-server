@@ -40,7 +40,7 @@ public class Tipolugar implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = " ", nullable = false)
+    @Column(name = "tluId", nullable = false)
     @Expose
     private Integer tluId;
     @Basic(optional = false)

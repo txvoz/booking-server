@@ -26,7 +26,7 @@ public class Main {
         //Por Ejemplo
         //ApiRol.singleton()
         //ApiUsuario.singleton();
-//        ApiRol.singleton();
+        ApiRol.singleton();
         ApiLugar.singleton();
     }
 
