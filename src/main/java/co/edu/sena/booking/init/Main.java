@@ -5,6 +5,8 @@
  */
 package co.edu.sena.booking.init;
 
+import co.edu.sena.booking.apis.ApiLugar;
+import co.edu.sena.booking.apis.ApiReserva;
 import co.edu.sena.booking.apis.ApiRol;
 import spark.Spark;
 
@@ -22,10 +24,9 @@ public class Main {
         //*************
         Spark.init();
         //Publicacion de Apis/Servicios
-        //Por Ejemplo
-        //ApiRol.singleton()
-        //ApiUsuario.singleton();
         ApiRol.singleton();
+        ApiLugar.singleton();
+        ApiReserva.singleton();
     }
-    
+
 }
