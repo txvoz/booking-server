@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -45,15 +46,19 @@ public class Municipio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "munId", nullable = false)
+    @Expose
     private Integer munId;
     @Basic(optional = false)
     @Column(name = "munNombre", nullable = false, length = 45)
+    @Expose
     private String munNombre;
     @Basic(optional = false)
     @Column(name = "munCodigo", nullable = false, length = 10)
+    @Expose
     private String munCodigo;
     @JoinColumn(name = "fkDepartamento", referencedColumnName = "depId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Departamento fkDepartamento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkMunicipio", fetch = FetchType.EAGER)
     private List<Lugar> lugarList;
