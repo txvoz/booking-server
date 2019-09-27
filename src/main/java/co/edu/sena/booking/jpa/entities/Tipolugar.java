@@ -45,6 +45,7 @@ public class Tipolugar implements Serializable {
     private Integer tluId;
     @Basic(optional = false)
     @Column(name = "tluNombre", nullable = false, length = 45)
+    @Expose
     private String tluNombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkTipoLugar", fetch = FetchType.EAGER)
     private List<Lugar> lugarList;
