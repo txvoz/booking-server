@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -37,12 +38,15 @@ public class ReservaCliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ruId", nullable = false)
+    @Expose
     private Integer ruId;
     @JoinColumn(name = "fkReserva", referencedColumnName = "resId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Reserva fkReserva;
     @JoinColumn(name = "fkCliente", referencedColumnName = "usuId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Usuario fkCliente;
 
     public ReservaCliente() {

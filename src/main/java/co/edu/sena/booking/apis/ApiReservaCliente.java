@@ -18,10 +18,10 @@ import spark.Request;
 import spark.Response;
 import static spark.Spark.init;
 
-public class ApiReservaCliente {
+public class ApiReservaCliente extends BasicApi implements IApi{
     
     private static ApiReservaCliente instance = null;
-    private String path = "/reservacliente";
+    private String path = "/reservaCliente";
     private Gson gson = null;    
     private ReservaClienteJpaController reservaClienteController = null;
     
