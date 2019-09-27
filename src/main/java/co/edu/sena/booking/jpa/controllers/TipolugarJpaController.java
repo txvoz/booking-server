@@ -181,6 +181,7 @@ public class TipolugarJpaController implements Serializable {
     public Tipolugar findTipolugar(Integer id) {
         EntityManager em = getEntityManager();
         try {
+            
             return em.find(Tipolugar.class, id);
         } finally {
             em.close();

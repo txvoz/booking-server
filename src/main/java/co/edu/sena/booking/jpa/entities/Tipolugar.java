@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -40,9 +41,11 @@ public class Tipolugar implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "tluId", nullable = false)
+    @Expose
     private Integer tluId;
     @Basic(optional = false)
     @Column(name = "tluNombre", nullable = false, length = 45)
+    @Expose
     private String tluNombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkTipoLugar", fetch = FetchType.EAGER)
     private List<Lugar> lugarList;

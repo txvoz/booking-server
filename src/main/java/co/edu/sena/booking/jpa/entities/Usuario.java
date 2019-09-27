@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -49,6 +50,7 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "usuId", nullable = false)
+    @Expose
     private Integer usuId;
     @Basic(optional = false)
     @Column(name = "usuIdentificacion", nullable = false, length = 45)
