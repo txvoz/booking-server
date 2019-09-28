@@ -42,11 +42,11 @@ public class ReservaCliente implements Serializable {
     private Integer ruId;
     @JoinColumn(name = "fkReserva", referencedColumnName = "resId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @Expose
+    //@Expose
     private Reserva fkReserva;
     @JoinColumn(name = "fkCliente", referencedColumnName = "usuId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @Expose
+    //@Expose
     private Usuario fkCliente;
 
     public ReservaCliente() {

@@ -27,7 +27,7 @@ public class ApiReservaCliente extends BasicApi implements IApi{
     
     private ApiReservaCliente() {
         reservaClienteController = new ReservaClienteJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
+        gson = new Gson();//JsonTransformer.singleton().getGson(); //datos del body se envian como json, no requiere parseo / si requiere parseo del servidor al body
         init();
     }
 
