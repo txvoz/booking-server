@@ -32,7 +32,7 @@ public class ApiCalificacion extends BasicApi implements IApi {
     
     private ApiCalificacion() {
         calificacionController = new CalificacionJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
+        gson = new Gson();
         init();
     }
 
