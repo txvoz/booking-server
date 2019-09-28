@@ -18,16 +18,16 @@ import spark.Request;
 import spark.Response;
 import static spark.Spark.init;
 
-public class ApiReservaCliente {
+public class ApiReservaCliente extends BasicApi implements IApi{
     
     private static ApiReservaCliente instance = null;
-    private String path = "/reservacliente";
+    private String path = "/reservaCliente";
     private Gson gson = null;    
     private ReservaClienteJpaController reservaClienteController = null;
     
     private ApiReservaCliente() {
         reservaClienteController = new ReservaClienteJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
+        gson = new Gson();//JsonTransformer.singleton().getGson(); //datos del body se envian como json, no requiere parseo / si requiere parseo del servidor al body
         init();
     }
 
