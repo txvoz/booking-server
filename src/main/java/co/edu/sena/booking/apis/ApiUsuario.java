@@ -27,8 +27,9 @@ public class ApiUsuario extends BasicApi implements IApi {
     private UsuarioJpaController usuarioController = null;
 
     private ApiUsuario() {
+        gson =new Gson();
         usuarioController = new UsuarioJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
+        //gson = JsonTransformer.singleton().getGson();
         init();
     }
 
