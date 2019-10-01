@@ -30,13 +30,19 @@ public class ApiLugar extends BasicApi implements IApi {
     private Gson gson = null;
     private LugarJpaController lugarController = null;
 
+    /**
+     * Constructor privado de la clase
+     */
     private ApiLugar() {
         lugarController = new LugarJpaController(Utils.getEM());
         gson = JsonTransformer.singleton().getGson();
 //        gson = new Gson();
         init();
     }
-
+    /**
+     * Metodo statico para generar el patro singleton en el api.
+     * @return de tipo ApiLugar la instancia de la clase.
+     */
     public static ApiLugar singleton() {
         if (instance == null) {
             instance = new ApiLugar();
