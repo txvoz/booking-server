@@ -29,7 +29,7 @@ public class ApiUsuario extends BasicApi implements IApi {
     private ApiUsuario() {
         gson =new Gson();
         usuarioController = new UsuarioJpaController(Utils.getEM());
-        //gson = JsonTransformer.singleton().getGson();
+        gson = JsonTransformer.singleton().getGson();
         init();
     }
 
@@ -52,15 +52,6 @@ public class ApiUsuario extends BasicApi implements IApi {
             String body = rq.body();
             Usuario nEntity = gson.fromJson(body, Usuario.class);
             usuarioController.create(nEntity);
-               /* nEntity.setUsuId(nEntity.getUsuId());
-                nEntity.setUsuIdentificacion(nEntity.getUsuIdentificacion());
-                nEntity.setUsuNombres(nEntity.getUsuNombres());
-                nEntity.setUsuGenero(nEntity.getUsuGenero());
-                nEntity.setUsuCorreo(nEntity.getUsuCorreo());
-                nEntity.setUsuTelefono(nEntity.getUsuTelefono());
-                nEntity.setUsuAvatar(nEntity.getUsuAvatar());
-                nEntity.setFkTipoIdentificacion(nEntity.getFkTipoIdentificacion());*/
-            
             retorno.put("status", 201);
             retorno.put("message", "Registro creado con exito!");
             retorno.put("data", nEntity);

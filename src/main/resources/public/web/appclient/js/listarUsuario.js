@@ -16,9 +16,16 @@ function cargarDatos() {
     httpConnect("/usuario", null, "GET", function (r) {
         var html = "";
         for (var i = 0; i < r.data.length; i++) {
-            var libro = r.data[i];
+            var usuario = r.data[i];
             html += "<tr>";
-            html += "<td>" + libro.nombre + "</td>";
+            html += "<td>" + usuario.usuId + "</td>";
+            html += "<td>" + usuario.usuIdentificacion + "</td>";
+            html += "<td>" + usuario.nombre + "</td>";
+            html += "<td>" + usuario.genero + "</td>";
+            html += "<td>" + usuario.correo + "</td>";
+            html += "<td>" + usuario.telefono + "</td>";
+            html += "<td>" + usuario.avatarcode + "</td>";
+            html += "<td>" + usuario.tipoidentificacion + "</td>";
             html += "<td>";
             html += "<div data-id='" + i + "' class='material-icons delete' style='color:red'>delete</div>";
             html += "<div data-id='" + i + "' class='material-icons edit' style='color:green'>edit</div>";
