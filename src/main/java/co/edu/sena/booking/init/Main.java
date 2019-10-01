@@ -6,6 +6,7 @@ import co.edu.sena.booking.apis.ApiLugar;
 import co.edu.sena.booking.apis.ApiPais;
 import co.edu.sena.booking.apis.ApiReserva;
 import co.edu.sena.booking.apis.ApiCalificacion;
+import co.edu.sena.booking.apis.ApiMunicipio;
 import co.edu.sena.booking.apis.ApiRol;
 import co.edu.sena.booking.apis.ApiRolUsuario;
 import co.edu.sena.booking.apis.ApiTipoAlojamiento;
@@ -30,6 +31,7 @@ public class Main {
         ApiCalificacion.singleton();
         ApiDepartamento.singleton();
         ApiLugar.singleton();
+        ApiMunicipio.singleton();
         ApiPais.singleton();
         ApiReserva.singleton();
         ApiReservaCliente.singleton();
