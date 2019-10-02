@@ -10,6 +10,7 @@ import co.edu.sena.booking.apis.ApiReserva;
 import co.edu.sena.booking.apis.ApiDepartamento;
 import co.edu.sena.booking.apis.ApiPais;
 import co.edu.sena.booking.apis.ApiRol;
+import co.edu.sena.booking.apis.ApiUsuario;
 import spark.Spark;
 
 /**
@@ -27,6 +28,7 @@ public class Main {
         Spark.init();
         //Publicacion de Apis/Servicios
         ApiRol.singleton();
+        ApiUsuario.singleton();
         ApiLugar.singleton();
         ApiReserva.singleton();
         ApiPais.singleton();

@@ -3,9 +3,7 @@ package co.edu.sena.booking.apis;
 import co.edu.sena.booking.apis.abstract_.BasicApi;
 import co.edu.sena.booking.apis.abstract_.IApi;
 import co.edu.sena.booking.jpa.controllers.UsuarioJpaController;
-import co.edu.sena.booking.jpa.entities.Tipoidentificacion;
 import co.edu.sena.booking.jpa.entities.Usuario;
-import static co.edu.sena.booking.jpa.entities.Usuario_.fkTipoIdentificacion;
 import co.edu.sena.booking.utils.JsonTransformer;
 import co.edu.sena.booking.utils.Utils;
 import com.google.gson.Gson;
@@ -27,7 +25,6 @@ public class ApiUsuario extends BasicApi implements IApi {
     private UsuarioJpaController usuarioController = null;
 
     private ApiUsuario() {
-        gson =new Gson();
         usuarioController = new UsuarioJpaController(Utils.getEM());
         gson = JsonTransformer.singleton().getGson();
         init();

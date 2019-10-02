@@ -1,10 +1,10 @@
 function detalle(target){
-    var id = $(target).data("id");
-    window.location.replace("?p=detalleUsuario&id="+id);
+    var id = $(target).data("usuId");
+    window.location.replace("?p=detalleUsuario&usuId="+id);
 }
 
 function eliminar(target) {
-    var id = $(target).data("id");
+    var id = $(target).data("usuId");
     httpConnect("/usuario/" + id, null, "DELETE",
             function (r) {
                 alert(r.message);
@@ -20,12 +20,12 @@ function cargarDatos() {
             html += "<tr>";
             html += "<td>" + usuario.usuId + "</td>";
             html += "<td>" + usuario.usuIdentificacion + "</td>";
-            html += "<td>" + usuario.nombre + "</td>";
-            html += "<td>" + usuario.genero + "</td>";
-            html += "<td>" + usuario.correo + "</td>";
-            html += "<td>" + usuario.telefono + "</td>";
-            html += "<td>" + usuario.avatarcode + "</td>";
-            html += "<td>" + usuario.tipoidentificacion + "</td>";
+            html += "<td>" + usuario.usuNombres + "</td>";
+            html += "<td>" + usuario.usuGenero + "</td>";
+            html += "<td>" + usuario.usuCorreo + "</td>";
+            html += "<td>" + usuario.usuTelefono + "</td>";
+            html += "<td>" + usuario.usuAvatar + "</td>";
+            //html += "<td>" + usuario.fkTipoIdentificacion + "</td>";
             html += "<td>";
             html += "<div data-id='" + i + "' class='material-icons delete' style='color:red'>delete</div>";
             html += "<div data-id='" + i + "' class='material-icons edit' style='color:green'>edit</div>";

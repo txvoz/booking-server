@@ -1,11 +1,11 @@
 function cargarDetalle() {
-    var id = getParameterByName("id");
+    var id = getParameterByName("usuId");
     httpConnect("/usuario/" + id, null, "GET",function(r){
         if(r.status!==200){
             alert(r.message);
             window.location.replace("?p=listarUsuario");
         }
-        $("#id").val(id);
+        $("#usuId").val(usuId);
         $("#identificacion").val(r.data.identificacion);
         $("#nombre").val(r.data.nombre);
         $("#genero").val(r.data.genero);
@@ -24,7 +24,7 @@ $(function () {
     cargarDetalle();
     $("#frmUpdate").submit(function(){
         var entidad = new Object();
-        entidad.id = $("#id").val();
+        entidad.usuId = $("#usuId").val();
         entidad.identificacion = $("#identificacion").val();
         entidad.nombre = $("#nombre").val();
         entidad.genero = $("#genero").val();
@@ -34,7 +34,7 @@ $(function () {
         entidad.tipoidentificacion = $("#tipoidentificacion").val();
         var jentidad = JSON.stringify(entidad);
         
-        var id=$("#id").val();
+        var id=$("#usuId").val();
         httpConnect("/usuario/"+id,jentidad,"PUT",function(r){
             alert(r.message+"-"+r.data.nombre);
             window.location.replace("?p=listarUsuario");
