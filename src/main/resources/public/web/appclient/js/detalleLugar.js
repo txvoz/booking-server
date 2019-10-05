@@ -1,13 +1,27 @@
-function cargarDepartamento(fn) {
-    httpConnect("/departamento", null, "GET", function (r) {
-        var html = "<select id='departamento' name='departamento' class='form-control' required>";
+function cargarTipoLugar(fn) {
+    httpConnect("/tipolugar", null, "GET", function (r) {
+        var html = "<select id='fkTipoLugar' name='fkTipoLugar' class='form-control' required>";
+        html += "<option value=''>[SELECCIONAR OPCION]</option>";
+        for (var i = 0; i < r.data.length; i++) {
+            var o = r.data[i];
+            html += "<option value='" + i + "'>" + o.tluNombre + "</option>";
+        }
+        html += "</select>";
+        $("#contentTipoLugar").html(html);
+        fn();
+    });
+}
+
+function cargarMunicipio(fn) {
+    httpConnect("/Municipio", null, "GET", function (r) {
+        var html = "<select id='Municipio' name='Municipio' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
             html += "<option value='" + i + "'>" + o.fkMunicipio + "</option>";
         }
         html += "</select>";
-        $("#contentDepartamento").html(html);
+        $("#contentMunicipio").html(html);
         fn();
     });
 }
@@ -38,6 +52,8 @@ function cargarDetalle() {
 
 $(function () {
     cargarDetalle();
+    cargarTipoLugar();
+    cargarMunicipio();
     $("#frmUpdate").submit(function () {
         var entidad = new Object();
         entidad.nombre = $("#nombre").val();
