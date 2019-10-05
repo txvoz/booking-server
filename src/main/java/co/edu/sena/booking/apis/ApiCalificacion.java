@@ -7,8 +7,8 @@ package co.edu.sena.booking.apis;
 
 import co.edu.sena.booking.apis.abstract_.BasicApi;
 import co.edu.sena.booking.apis.abstract_.IApi;
-import co.edu.sena.booking.jpa.controllers.LugarJpaController;
-import co.edu.sena.booking.jpa.entities.Lugar;
+import co.edu.sena.booking.jpa.controllers.CalificacionJpaController;
+import co.edu.sena.booking.jpa.entities.Calificacion;
 import co.edu.sena.booking.utils.JsonTransformer;
 import co.edu.sena.booking.utils.Utils;
 import com.google.gson.Gson;
@@ -21,38 +21,31 @@ import spark.Response;
 
 /**
  *
- * @author Andrés Felipe Mera Tróchez
+ * @author Administrador
  */
-public class ApiLugar extends BasicApi implements IApi {
-
-    private static ApiLugar instance = null;
-    private String path = "/lugar";
+public class ApiCalificacion extends BasicApi implements IApi {
+    
+    private static ApiCalificacion instance = null;
+    private String path = "/calificacion";
     private Gson gson = null;
-    private LugarJpaController lugarController = null;
-
-    /**
-     * Constructor privado de la clase
-     */
-    private ApiLugar() {
-        lugarController = new LugarJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
-//        gson = new Gson();
+    private CalificacionJpaController calificacionController = null;
+    
+    private ApiCalificacion() {
+        calificacionController = new CalificacionJpaController(Utils.getEM());
+        gson = new Gson();
         init();
     }
-    /**
-     * Metodo statico para generar el patro singleton en el api.
-     * @return de tipo ApiLugar la instancia de la clase.
-     */
-    public static ApiLugar singleton() {
+
+    public static ApiCalificacion singleton() {
         if (instance == null) {
-            instance = new ApiLugar();
+            instance = new ApiCalificacion();
         }
         return instance;
     }
 
     @Override
     public String getPath() {
-        return path;
+       return path;
     }
 
     @Override
@@ -60,11 +53,11 @@ public class ApiLugar extends BasicApi implements IApi {
         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             String body = rq.body();
-            Lugar newEntity = gson.fromJson(body, Lugar.class);
-            lugarController.create(newEntity);
+            Calificacion nEntity = gson.fromJson(body, Calificacion.class);
+            calificacionController.create(nEntity);
             retorno.put("status", 201);
             retorno.put("message", "Registro creado con exito!");
-            retorno.put("data", newEntity);
+            retorno.put("data", nEntity);
         } catch (JsonSyntaxException | PersistenceException e) {
             rs.status(400);
             retorno.put("status", 400);
@@ -79,24 +72,16 @@ public class ApiLugar extends BasicApi implements IApi {
         try {
             int id = Integer.parseInt(rq.params("id"));
             String body = rq.body();
-            Lugar newEntity = gson.fromJson(body, Lugar.class);
-            Lugar oldEntity = lugarController.findLugar(id);
-            if (oldEntity != null) {
-                oldEntity.setLugNombre(newEntity.getLugNombre());
-                oldEntity.setLugCorreo(newEntity.getLugCorreo());
-                oldEntity.setLugDescripcion(newEntity.getLugDescripcion());
-                oldEntity.setLugDireccion(newEntity.getLugDireccion());
-                oldEntity.setLugLatitud(newEntity.getLugLatitud());
-                oldEntity.setLugLongitud(newEntity.getLugLongitud());
-                oldEntity.setLugTelefono(newEntity.getLugTelefono());
-                oldEntity.setFkMunicipio(newEntity.getFkMunicipio());
-                oldEntity.setFkTipoLugar(newEntity.getFkTipoLugar());
-
-                lugarController.edit(oldEntity);
+            Calificacion nEntity = gson.fromJson(body, Calificacion.class);
+            Calificacion oEntity = calificacionController.findCalificacion(id);
+            if (oEntity != null) {
+                oEntity.setCalValoracion(nEntity.getCalValoracion());
+                oEntity.setCalComentario(nEntity.getCalComentario());
+                calificacionController.edit(oEntity);
                 rs.status(201);
                 retorno.put("status", 201);
                 retorno.put("message", "Registro con el id@" + id + " actualizado!");
-                retorno.put("data", oldEntity);
+                retorno.put("data", oEntity);
             } else {
                 rs.status(404);
                 retorno.put("status", 404);
@@ -115,7 +100,7 @@ public class ApiLugar extends BasicApi implements IApi {
         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             int id = Integer.parseInt(rq.params("id"));
-            lugarController.destroy(id);
+            calificacionController.destroy(id);
             retorno.put("status", 200);
             retorno.put("message", "Registro eliminado con exito!");
         } catch (Exception e) {
@@ -129,7 +114,7 @@ public class ApiLugar extends BasicApi implements IApi {
     @Override
     public Object getAll(Request rq, Response rs) {
         Hashtable<String, Object> retorno = new Hashtable<>();
-        List<Lugar> entities = lugarController.findLugarEntities();
+        List<Calificacion> entities = calificacionController.findCalificacionEntities();
         if (entities.size() > 0) {
             retorno.put("status", 200);
             retorno.put("message", "Datos encontrados con exito!");
@@ -144,10 +129,10 @@ public class ApiLugar extends BasicApi implements IApi {
 
     @Override
     public Object getById(Request rq, Response rs) {
-        Hashtable<String, Object> retorno = new Hashtable<>();
+         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             int id = Integer.parseInt(rq.params("id"));
-            Lugar entity = lugarController.findLugar(id);
+            Calificacion entity = calificacionController.findCalificacion(id);
             if (entity != null) {
                 retorno.put("status", 200);
                 retorno.put("message", "Registro con el id@" + id + " encontrado!");
@@ -164,4 +149,5 @@ public class ApiLugar extends BasicApi implements IApi {
         }
         return retorno;
     }
+    
 }

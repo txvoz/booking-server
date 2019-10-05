@@ -54,18 +54,24 @@ public class Usuario implements Serializable {
     private Integer usuId;
     @Basic(optional = false)
     @Column(name = "usuIdentificacion", nullable = false, length = 45)
+    @Expose
     private String usuIdentificacion;
     @Basic(optional = false)
     @Column(name = "usuNombres", nullable = false, length = 45)
+    @Expose
     private String usuNombres;
     @Basic(optional = false)
     @Column(name = "usuGenero", nullable = false, length = 2)
+    @Expose
     private String usuGenero;
     @Column(name = "usuCorreo", length = 45)
+    @Expose
     private String usuCorreo;
     @Column(name = "usuTelefono", length = 45)
+    @Expose
     private String usuTelefono;
     @Column(name = "usuAvatar", length = 45)
+    @Expose
     private String usuAvatar;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkUsuario", fetch = FetchType.EAGER)
     private List<Calificacion> calificacionList;
@@ -75,6 +81,7 @@ public class Usuario implements Serializable {
     private List<ReservaCliente> reservaClienteList;
     @JoinColumn(name = "fkTipoIdentificacion", referencedColumnName = "tidId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Tipoidentificacion fkTipoIdentificacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkCliente", fetch = FetchType.EAGER)
     private List<Reserva> reservaList;
