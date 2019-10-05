@@ -1,5 +1,6 @@
 package co.edu.sena.booking.init;
 
+import co.edu.sena.booking.apis.ApiAlojamiento;
 import co.edu.sena.booking.apis.ApiDepartamento;
 import co.edu.sena.booking.apis.ApiReservaCliente;
 import co.edu.sena.booking.apis.ApiLugar;
@@ -40,6 +41,7 @@ public class Main {
         ApiTipoAlojamiento.singleton();
         ApiTipoIdentificacion.singleton();
         ApiUsuario.singleton();
+        ApiAlojamiento.singleton();
     }
 
 }
