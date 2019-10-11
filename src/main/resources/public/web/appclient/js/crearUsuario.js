@@ -1,33 +1,19 @@
-function cargarGeneros() {
-    httpConnect("/usuario", null, "GET", function (r) {
-        var html = "<select id='genero' name='genero' class='form-control' required>";
-        html += "<option value=''>[SELECCIONAR OPCION]</option>";
-        for (var i = 0; i < r.data.length; i++) {
-            var o = r.data[i];
-            html += "<option value='" + i + "'>" + o.nombre + "</option>";
-        }
-        html += "</select>";
-        $("#contentGenero").html(html);
-    });
-}
-
 $(function(){
     cargarCategorias();
     $("#frmCrear").submit(function(){
         var usuario = new Object();
-        usuario.id = $("#id").val();
-        usuario.identificacion = $("#identificacion").val();
-        usuario.nombre = $("#nombre").val();
-        usuario.genero = $("#genero").val();
-        usuario.correo = $("#correo").val();
-        usuario.telefono = $("#telefono").val();
-        usuario.avatarcode = $("#avatarcode").val();
-        usuario.tipoidentificacion = $("#tipoidentificacion").val();
+        usuario.usuIdentificacion = $("#usuIdentificacion").val();
+        usuario.usuNombres = $("#usuNombres").val();
+        usuario.usuGenero = $("#usuGenero").val();
+        usuario.usuCorreo = $("#usuCorreo").val();
+        usuario.usuTelefono = $("#usuTelefono").val();
+        usuario.usuAvatar = $("#usuAvatar").val();
+        usuario.FkTipoIdentificacion = $("#FkTipoIdentificacion").val();
         
         var jusuario = JSON.stringify(usuario);
         
         httpConnect("/usuario",jusuario,"POST",function(r){
-            alert(r.message+"-"+r.data.nombre);
+            alert(r.message+"-"+r.data.usuIdentificacion);
             $("button[type=reset]").click();
         });
         

@@ -23,7 +23,6 @@ $(function () {
     cargarDetalle();
     $("#frmUpdate").submit(function(){
         var entidad = new Object();
-        entidad.usuId = $("#usuId").val();
         entidad.usuIdentificacion = $("#usuIdentificacion").val();
         entidad.usuNombre = $("#usuNombre").val();
         entidad.usuGenero = $("#usuGenero").val();

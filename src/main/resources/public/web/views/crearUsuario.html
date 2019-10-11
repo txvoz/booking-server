@@ -7,38 +7,43 @@
                 <div class="form-group">
                     <label>Identificacion:</label>
                     <input type="number" class="form-control" 
-                           id="identificacion" name="identificacion" required/>
+                           id="usuIdentificacion" name="usuIdentificacion" required/>
                 </div>
                 <div class="form-group">
                     <label>Nombre:</label>
                     <input type="text" class="form-control" 
-                           id="nombre" name="nombre" required/>
+                           id="usuNombres" name="usuNombres" required/>
                 <div class="form-group">
                     <label>Genero:</label>
-                    <select name="states" id="example" class="form-control"  multiple="multiple" style="display: none;">
-                        <option value="MC">Masculino</option>
-                        <option value="FE">Femenino</option>
-                        <option selected value="OT">Otro</option>
-                    </select>
+                <p>
+
+                <input id="usuGenero" type="radio" name="usuGenero" value="M"> Masculino<br>
+
+                <input id="usuGenero" type="radio" name="usuGenero" value="F"> Femenino<br>
+
+                <input id="usuGenero" type="radio" name="usuGenero" value="O"> Otro
+
+                </p>
+                </div>
                 <div class="form-group">
                     <label>Correo:</label>
                     <input type="text" class="form-control" 
-                           id="correo" name="correo" required/>
+                           id="usuCorreo" name="usuCorreo" required/>
                 </div>
                 <div class="form-group">
                     <label>Telefono:</label>
                     <input type="number" class="form-control" 
-                           id="telefono" name="telefono" required/>
+                           id="usuTelefono" name="usuTelefono" required/>
                 </div>
                 <div class="form-group">
-                    <label>AvatarCode:</label>
+                    <label>Avatar:</label>
                     <input type="text" class="form-control" 
-                           id="avatar" name="avatar" required/>
+                           id="usuAvatar" name="usuAvatar" required/>
                 </div>
                 <div class="form-group">
                     <label>Tipo Identificacion:</label>
                     <input type="number" class="form-control" 
-                           id="tipoidentificacion" name="tipoidentificacion" required/>
+                           id="FkTipoIdentificacion" name="FkTipoIdentificacion" required/>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Enviar</button>
