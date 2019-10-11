@@ -69,6 +69,7 @@ public class ApiUsuario extends BasicApi implements IApi {
             Usuario nEntity = gson.fromJson(body, Usuario.class);
             Usuario oEntity = usuarioController.findUsuario(id);
             if (oEntity != null) {
+                oEntity.setUsuId(nEntity.getUsuId());
                 oEntity.setUsuIdentificacion(nEntity.getUsuIdentificacion());
                 oEntity.setUsuNombres(nEntity.getUsuNombres());
                 oEntity.setUsuGenero(nEntity.getUsuGenero());

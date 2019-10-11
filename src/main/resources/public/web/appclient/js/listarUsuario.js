@@ -1,7 +1,7 @@
 function detalle(target)
 {
     var id = $(target).data("id");
-    window.location.replace("?p=detalleUsuario&id="+id);
+    window.location.replace("?p=detalleUsuario&usuId="+id);
 }
 
 function eliminar(target) 
