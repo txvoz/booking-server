@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author USER
+ * @author zt4rm4n
  */
 @Entity
 @Table(name = "tipolugar", catalog = "db_booking", schema = "")
@@ -48,6 +48,7 @@ public class Tipolugar implements Serializable {
     @Expose
     private String tluNombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkTipoLugar", fetch = FetchType.EAGER)
+    @Expose
     private List<Lugar> lugarList;
 
     public Tipolugar() {
