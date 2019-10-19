@@ -12,6 +12,7 @@ import co.edu.sena.booking.apis.ApiRol;
 import co.edu.sena.booking.apis.ApiRolUsuario;
 import co.edu.sena.booking.apis.ApiTipoAlojamiento;
 import co.edu.sena.booking.apis.ApiTipoIdentificacion;
+import co.edu.sena.booking.apis.ApiTipoLugar;
 import co.edu.sena.booking.apis.ApiUsuario;
 import spark.Spark;
 
@@ -41,6 +42,7 @@ public class Main {
         ApiRolUsuario.singleton();
         ApiTipoAlojamiento.singleton();
         ApiTipoIdentificacion.singleton();
+        ApiTipoLugar.singleton();
         ApiUsuario.singleton();
         ApiAlojamiento.singleton();
     }

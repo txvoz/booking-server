@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.sena.booking.apis;
 
 import co.edu.sena.booking.apis.abstract_.BasicApi;
@@ -19,21 +14,16 @@ import javax.persistence.PersistenceException;
 import spark.Request;
 import spark.Response;
 
-/**
- *
- * @author Andrés Felipe Mera Tróchez
- */
 public class ApiTipoLugar extends BasicApi implements IApi {
 
     private static ApiTipoLugar instance = null;
     private String path = "/tipolugar";
     private Gson gson = null;
-    private TipolugarJpaController tipolugarController = null;
+    private TipolugarJpaController tipolugarJpaController = null;
 
     private ApiTipoLugar() {
-        tipolugarController = new TipolugarJpaController(Utils.getEM());
-//        gson = JsonTransformer.singleton().getGson();
-        gson = new Gson();
+        tipolugarJpaController = new TipolugarJpaController(Utils.getEM());
+        gson = JsonTransformer.singleton().getGson();
         init();
     }
 
@@ -54,11 +44,11 @@ public class ApiTipoLugar extends BasicApi implements IApi {
         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             String body = rq.body();
-            Tipolugar newEntity = gson.fromJson(body, Tipolugar.class);
-            tipolugarController.create(newEntity);
+            Tipolugar nEntity = gson.fromJson(body, Tipolugar.class);
+            tipolugarJpaController.create(nEntity);
             retorno.put("status", 201);
             retorno.put("message", "Registro creado con exito!");
-            retorno.put("data", newEntity);
+            retorno.put("data", nEntity);
         } catch (JsonSyntaxException | PersistenceException e) {
             rs.status(400);
             retorno.put("status", 400);
@@ -73,17 +63,15 @@ public class ApiTipoLugar extends BasicApi implements IApi {
         try {
             int id = Integer.parseInt(rq.params("id"));
             String body = rq.body();
-            Tipolugar newEntity = gson.fromJson(body, Tipolugar.class);
-            Tipolugar oldEntity = tipolugarController.findTipolugar(id);
-            if (oldEntity != null) {
-                oldEntity.setTluId(newEntity.getTluId());
-                oldEntity.setTluNombre(newEntity.getTluNombre());
-
-                tipolugarController.edit(oldEntity);
+            Tipolugar nEntity = gson.fromJson(body, Tipolugar.class);
+            Tipolugar oEntity = tipolugarJpaController.findTipolugar(id);
+            if (oEntity != null) {
+                oEntity.setTluNombre(nEntity.getTluNombre());
+                tipolugarJpaController.edit(oEntity);
                 rs.status(201);
                 retorno.put("status", 201);
                 retorno.put("message", "Registro con el id@" + id + " actualizado!");
-                retorno.put("data", oldEntity);
+                retorno.put("data", oEntity);
             } else {
                 rs.status(404);
                 retorno.put("status", 404);
@@ -102,7 +90,7 @@ public class ApiTipoLugar extends BasicApi implements IApi {
         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             int id = Integer.parseInt(rq.params("id"));
-            tipolugarController.destroy(id);
+            tipolugarJpaController.destroy(id);
             retorno.put("status", 200);
             retorno.put("message", "Registro eliminado con exito!");
         } catch (Exception e) {
@@ -116,7 +104,7 @@ public class ApiTipoLugar extends BasicApi implements IApi {
     @Override
     public Object getAll(Request rq, Response rs) {
         Hashtable<String, Object> retorno = new Hashtable<>();
-        List<Tipolugar> entities = tipolugarController.findTipolugarEntities();
+        List<Tipolugar> entities = tipolugarJpaController.findTipolugarEntities();
         if (entities.size() > 0) {
             retorno.put("status", 200);
             retorno.put("message", "Datos encontrados con exito!");
@@ -134,7 +122,7 @@ public class ApiTipoLugar extends BasicApi implements IApi {
         Hashtable<String, Object> retorno = new Hashtable<>();
         try {
             int id = Integer.parseInt(rq.params("id"));
-            Tipolugar entity = tipolugarController.findTipolugar(id);
+            Tipolugar entity = tipolugarJpaController.findTipolugar(id);
             if (entity != null) {
                 retorno.put("status", 200);
                 retorno.put("message", "Registro con el id@" + id + " encontrado!");
@@ -151,4 +139,5 @@ public class ApiTipoLugar extends BasicApi implements IApi {
         }
         return retorno;
     }
+
 }
