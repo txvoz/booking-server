@@ -29,6 +29,7 @@ public class Main {
         //*************
         Spark.init();
         //Publicacion de Apis/Servicios
+        ApiAlojamiento.singleton();
         ApiCalificacion.singleton();
         ApiDepartamento.singleton();
         ApiLugar.singleton();
