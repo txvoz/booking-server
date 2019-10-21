@@ -5,6 +5,7 @@
  */
 package co.edu.sena.booking.jpa.entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -40,21 +41,27 @@ public class Foto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "fotId", nullable = false)
+    @Expose
     private Integer fotId;
     @Basic(optional = false)
     @Column(name = "fotRuta", nullable = false, length = 45)
+    @Expose
     private String fotRuta;
     @Basic(optional = false)
     @Column(name = "fotLabel", nullable = false, length = 45)
+    @Expose
     private String fotLabel;
     @Lob
     @Column(name = "fotDescripcion", length = 16777215)
+    @Expose
     private String fotDescripcion;
     @JoinColumn(name = "fkAlojamiento", referencedColumnName = "aloId")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Expose
     private Alojamiento fkAlojamiento;
     @JoinColumn(name = "fkLugar", referencedColumnName = "lugId")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Expose
     private Lugar fkLugar;
 
     public Foto() {
