@@ -47,6 +47,7 @@ public class Departamento implements Serializable {
     private Integer depId;
     @Basic(optional = false)
     @Column(name = "depNombre", nullable = false, length = 45)
+    @Expose
     private String depNombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkDepartamento", fetch = FetchType.EAGER)
     private List<Municipio> municipioList;

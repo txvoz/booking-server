@@ -1,0 +1,81 @@
+<main class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h2>Nuevo Alogamiento!</h2>
+            <form id="frmCrear">
+                <div class="form-group">
+                    <label>Lugar:</label>
+                    <input type="text" class="form-control" 
+                           id="nombre_Lugar" name="Nombre_Lugar" required placeholder="Nombre del Lugar"/>
+                </div>
+                <div class="form-group">
+                    <label>Direcciòn:</label>
+                    <input type="text" class="form-control" 
+                           id="Direccion_Lugar" name="Direccion_Lugar" required placeholder="Direccion del Lugar"/>
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="number" class="form-control" 
+                           id="Telefono_Lugar" name="Telefono_Lugar" required placeholder="Celular o Telefono"/>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" class="form-control" 
+                           id="Email_Lugar" name="Email_Lugar" required placeholder="@Email.com"/>
+                </div>
+                <div class="form-group">
+                    <label>Latitud</label>
+                    <input type="text" class="form-control" 
+                           id="latitud_Lugar" name="latitud_Lugar" required placeholder="0º 0'' 0'"/>
+                </div>
+                <div class="form-group">
+                    <label>Longitud:</label>
+                    <input type="text" class="form-control" 
+                           id="Longitud_Lugar" name="Longitud_Lugar" required placeholder="0º 0'' 0'"/>
+                </div>
+                <div class="form-group">
+                    <label>Descripciòn: </label>
+                    <input type="text" class="form-control" 
+                           id="Descripcion_Lugar" name="Descripcion_Lugar" required placeholder="Descripcion del Lugar"/>
+                </div>  
+                <div class="form-group">
+                    <label>Pais</label>
+                    <select class="form-control" name="Pais" id="Pais" required>    
+                    </select>
+                <div class="form-group">
+                    <label>Departamento</label>
+                    <select class="form-control" name="Departamento" id="Departamento" required>                       
+                    </select>
+                <div class="form-group">
+                    <label>Municipio</label>
+                    <select class="form-control" name="municipio" id="Id_municipio" required>                      
+                    </select>
+                </div>  
+                <div class="form-group">
+                    <label>Tipo Lugar</label>
+                    <select class="form-control" name="Id_TpLugar" id="Id_TpLugar" required>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button type="reset" class="btn btn-warning">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 alert alert-success hide" >
+            <strong>Success!</strong> <p></p>
+        </div>
+    </div>
+</main>
+<script src="appclient/js/crearLugar.js" type="text/javascript"></script>
+<script src="appclient/js/cargarMunicipio.js" type="text/javascript"></script>
+<script src="appclient/js/cargarDepartamento.js" type="text/javascript"></script>
+<script src="appclient/js/cargarPais.js" type="text/javascript"></script>
+<script src="appclient/js/cargarTipoLugar.js" type="text/javascript"></script>
+<script src="appclient/libs/popper.min.js" type="text/javascript"></script>
+<script src="appclient/libs/Bootstrap-4-Multi-Select-BsMultiSelect/dist/js/BsMultiSelect.js" type="text/javascript"></script>

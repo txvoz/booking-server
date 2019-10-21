@@ -46,6 +46,7 @@ public class Pais implements Serializable {
     private Integer paiId;
     @Basic(optional = false)
     @Column(name = "paiNombre", nullable = false, length = 45)
+    @Expose
     private String paiNombre;
     @Basic(optional = false)
     @Column(name = "paiCodigo", nullable = false, length = 45)
