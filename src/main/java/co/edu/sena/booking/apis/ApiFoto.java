@@ -29,7 +29,7 @@ import spark.Response;
 public class ApiFoto extends BasicApi implements IApi{
     
     private static ApiFoto instance = null;
-    private String path = "/rol";
+    private String path = "/foto";
     private Gson gson = null;
     private FotoJpaController fotoController = null;
     
