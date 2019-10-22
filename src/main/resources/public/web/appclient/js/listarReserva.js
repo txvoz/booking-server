@@ -12,6 +12,7 @@ function eliminar(target) {
             });
 }
 
+
 function cargarDatos() {
     httpConnect("/reserva", null, "GET", function (r) {
         var html = "";
