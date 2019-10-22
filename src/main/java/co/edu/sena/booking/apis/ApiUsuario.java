@@ -4,6 +4,7 @@ import co.edu.sena.booking.apis.abstract_.BasicApi;
 import co.edu.sena.booking.apis.abstract_.IApi;
 import co.edu.sena.booking.jpa.controllers.UsuarioJpaController;
 import co.edu.sena.booking.jpa.entities.Usuario;
+import static co.edu.sena.booking.jpa.entities.Usuario_.fkTipoIdentificacion;
 import co.edu.sena.booking.utils.JsonTransformer;
 import co.edu.sena.booking.utils.Utils;
 import com.google.gson.Gson;
@@ -26,7 +27,6 @@ public class ApiUsuario extends BasicApi implements IApi {
 
     private ApiUsuario() {
         usuarioController = new UsuarioJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
         init();
     }
 
@@ -69,14 +69,12 @@ public class ApiUsuario extends BasicApi implements IApi {
             Usuario nEntity = gson.fromJson(body, Usuario.class);
             Usuario oEntity = usuarioController.findUsuario(id);
             if (oEntity != null) {
-                oEntity.setUsuId(nEntity.getUsuId());
                 oEntity.setUsuIdentificacion(nEntity.getUsuIdentificacion());
                 oEntity.setUsuNombres(nEntity.getUsuNombres());
                 oEntity.setUsuGenero(nEntity.getUsuGenero());
                 oEntity.setUsuCorreo(nEntity.getUsuCorreo());
                 oEntity.setUsuTelefono(nEntity.getUsuTelefono());
                 oEntity.setUsuAvatar(nEntity.getUsuAvatar());
-                oEntity.setFkTipoIdentificacion(nEntity.getFkTipoIdentificacion());
                 usuarioController.edit(oEntity);
                 rs.status(201);
                 retorno.put("status", 201);
