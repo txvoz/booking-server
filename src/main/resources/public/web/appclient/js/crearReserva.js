@@ -1,6 +1,6 @@
 function cargarAlojamiento() {
     httpConnect("/alojamiento", null, "GET", function (r) {
-        var html = "<select id='aloId' name='aloId' class='form-control' required>";
+        var html = "<select id='fkAlojamiento' name='fkAlojamiento' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
@@ -12,7 +12,7 @@ function cargarAlojamiento() {
 }
 function cargarCliente() {
     httpConnect("/usuario", null, "GET", function (r) {
-        var html = "<select id='usuId' name='usuId' class='form-control' required>";
+        var html = "<select id='fkCliente' name='fkCliente' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];

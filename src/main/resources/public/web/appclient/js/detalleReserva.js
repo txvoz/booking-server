@@ -37,7 +37,7 @@ function cargarEstado() {
 
 function cargarAlojamiento() {
     httpConnect("/alojamiento", null, "GET", function (r) {
-        var html = "<select id='aloId' name='aloId' class='form-control' required>";
+        var html = "<select id='fkAlojamiento' name='fkAlojamiento' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
@@ -49,7 +49,7 @@ function cargarAlojamiento() {
 }
 function cargarCliente() {
     httpConnect("/usuario", null, "GET", function (r) {
-        var html = "<select id='usuId' name='usuId' class='form-control' required>";
+        var html = "<select id='fkCliente' name='fkCliente' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
@@ -59,7 +59,6 @@ function cargarCliente() {
         $("#contentCliente").html(html);
     });
 }
-
 $(function () {
     cargarDetalle();
     
@@ -69,7 +68,7 @@ $(function () {
         entidad.resFechaRegistro = $("#resFechaRegistro").val();
         entidad.resFechaLlegada = $("#resFechaLlegada").val();
         entidad.resFechaSalida = $("#resFechaSalida").val();
-        entidad.resEstado = $("#estadoReservado").val();
+        entidad.resEstado = $("#resEstado").val();
         entidad.resPago = $("#resPago").val();
         entidad.fkAlojamiento = {
             aloId: $("#fkAlojamiento").val()
