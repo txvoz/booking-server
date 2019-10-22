@@ -1,0 +1,73 @@
+<main class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h2>Detalle Categotia <b></b>!</h2>
+            <form id="frmUpdate">
+                <input type="hidden" class="form-control" 
+                       id="id" name="id" required/>
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" class="form-control" 
+                           id="lugNombre" name="lugNombre" required/>
+                </div>
+                <div class="form-group">
+                    <label>Direccion:</label>
+                    <input type="text" class="form-control" 
+                           id="lugDireccion" name="lugDireccion" required/>
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="number" class="form-control" 
+                           id="lugTelefono" name="lugTelefono" required/>
+                </div>
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <input type="email" class="form-control" 
+                           id="lugCorreo" name="lugCorreo" required/>
+                </div>
+                <div class="form-group">
+                    <label>Latitud:</label>
+                    <input type="number" class="form-control" 
+                           id="lugLatitud" name="lugLatitud" required/>
+                </div>
+                <div class="form-group">
+                    <label>Longitud:</label>
+                    <input type="text" class="form-control" 
+                           id="lugLongitud" name="lugLongitud" required/>
+                </div>
+                <div class="form-group">
+                    <label>Descripcion:</label>
+                    <input type="text" class="form-control" 
+                           id="lugDescripcion" name="lugDescripcion" required/>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo Lugar:</label>
+                    <div id="contentTipoLugar">
+                        <select class="form-control" id="fkTipoLugar" name="fkTipoLugar" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Municipio:</label>
+                    <div id="contentMunicipio">
+                        <select class="form-control" id="fkMunicipio" name="fkMunicipio" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button type="reset" class="btn btn-warning">Limpiar</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 alert alert-success hide" >
+            <strong>Success!</strong> <p></p>
+        </div>
+    </div>
+</main>
+<script src="appclient/js/detalleLugar.js" type="text/javascript"></script>
