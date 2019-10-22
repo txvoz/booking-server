@@ -28,7 +28,7 @@ $(function () {
 
         var jentidad = JSON.stringify(entidad);
 
-        httpConnect("/alojamiento", jentidad, "POST", function (r) {
+        httpConnect("/tipoAlojamiento", jentidad, "POST", function (r) {
             alert(r.message + "-" + r.data.AloNombre);
             alert(r.message + "-" + r.data.Aloopciones);
 
