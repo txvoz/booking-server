@@ -50,28 +50,37 @@ public class Alojamiento implements Serializable {
     private Integer aloId;
     @Basic(optional = false)
     @Column(name = "aloCodigo", nullable = false, length = 11)
+    @Expose
     private String aloCodigo;
     @Basic(optional = false)
     @Column(name = "aloCapacidad", nullable = false)
+    @Expose
     private int aloCapacidad;
     @Basic(optional = false)
     @Column(name = "aloPrecio", nullable = false, length = 45)
+    @Expose
     private String aloPrecio;
     @Basic(optional = false)
     @Lob
     @Column(name = "aloDescripcion", nullable = false, length = 16777215)
+    @Expose
     private String aloDescripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkAlojamiento", fetch = FetchType.EAGER)
+    @Expose
     private List<Calificacion> calificacionList;
     @OneToMany(mappedBy = "fkAlojamiento", fetch = FetchType.EAGER)
+    @Expose
     private List<Foto> fotoList;
     @JoinColumn(name = "fkLugar", referencedColumnName = "lugId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Lugar fkLugar;
     @JoinColumn(name = "fkTipoAlojamiento", referencedColumnName = "talId", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Expose
     private Tipoalojamiento fkTipoAlojamiento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkAlojamiento", fetch = FetchType.EAGER)
+    @Expose
     private List<Reserva> reservaList;
 
     public Alojamiento() {

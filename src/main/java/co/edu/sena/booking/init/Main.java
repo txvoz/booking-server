@@ -1,15 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.sena.booking.init;
 
-import co.edu.sena.booking.apis.ApiLugar;
-import co.edu.sena.booking.apis.ApiReserva;
+import co.edu.sena.booking.apis.ApiAlojamiento;
 import co.edu.sena.booking.apis.ApiDepartamento;
+import co.edu.sena.booking.apis.ApiReservaCliente;
+import co.edu.sena.booking.apis.ApiLugar;
 import co.edu.sena.booking.apis.ApiPais;
+import co.edu.sena.booking.apis.ApiReserva;
+import co.edu.sena.booking.apis.ApiCalificacion;
+import co.edu.sena.booking.apis.ApiMunicipio;
 import co.edu.sena.booking.apis.ApiRol;
+import co.edu.sena.booking.apis.ApiRolUsuario;
+import co.edu.sena.booking.apis.ApiTipoAlojamiento;
+import co.edu.sena.booking.apis.ApiTipoIdentificacion;
+import co.edu.sena.booking.apis.ApiTipoLugar;
 import co.edu.sena.booking.apis.ApiUsuario;
 import spark.Spark;
 
@@ -27,12 +30,21 @@ public class Main {
         //*************
         Spark.init();
         //Publicacion de Apis/Servicios
-        ApiRol.singleton();
-        ApiUsuario.singleton();
-        ApiLugar.singleton();
-        ApiReserva.singleton();
-        ApiPais.singleton();
+        ApiAlojamiento.singleton();
+        ApiCalificacion.singleton();
         ApiDepartamento.singleton();
+        ApiLugar.singleton();
+        ApiMunicipio.singleton();
+        ApiPais.singleton();
+        ApiReserva.singleton();
+        ApiReservaCliente.singleton();
+        ApiRol.singleton();
+        ApiRolUsuario.singleton();
+        ApiTipoAlojamiento.singleton();
+        ApiTipoIdentificacion.singleton();
+        ApiTipoLugar.singleton();
+        ApiUsuario.singleton();
+        ApiAlojamiento.singleton();
     }
 
 }
