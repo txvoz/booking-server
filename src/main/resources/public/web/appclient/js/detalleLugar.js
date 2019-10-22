@@ -4,7 +4,7 @@ function cargarTipoLugar(fn) {
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
-            html += "<option value='" + i + "'>" + o.tluNombre + "</option>";
+            html += "<option value='" + o.tluId + "'>" + o.tluNombre + "</option>";
         }
         html += "</select>";
         $("#contentTipoLugar").html(html);
@@ -14,11 +14,11 @@ function cargarTipoLugar(fn) {
 
 function cargarMunicipio(fn) {
     httpConnect("/Municipio", null, "GET", function (r) {
-        var html = "<select id='Municipio' name='Municipio' class='form-control' required>";
+        var html = "<select id='fkMunicipio' name='fkMunicipio' class='form-control' required>";
         html += "<option value=''>[SELECCIONAR OPCION]</option>";
         for (var i = 0; i < r.data.length; i++) {
             var o = r.data[i];
-            html += "<option value='" + i + "'>" + o.fkMunicipio + "</option>";
+            html += "<option value='" + o.munId + "'>" + o.munNombre + "</option>";
         }
         html += "</select>";
         $("#contentMunicipio").html(html);
@@ -56,27 +56,24 @@ $(function () {
     cargarMunicipio();
     $("#frmUpdate").submit(function () {
         var entidad = new Object();
-        entidad.nombre = $("#nombre").val();
+        entidad.lugNombre = $("#lugNombre").val();
         entidad.lugDireccion = $("#lugDireccion").val();
         entidad.lugTelefono = $("#lugTelefono").val();
         entidad.lugCorreo = $("#lugCorreo").val();
         entidad.lugLatitud = $("#lugLatitud").val();
         entidad.lugLongitud = $("#lugLongitud").val();
         entidad.lugDescripcion = $("#lugDescripcion").val();
-        entidad.fkTipoLugar = $("#fkTipoLugar").val();
-        entidad.fkMunicipio = $("#fkMunicipio").val();
+        entidad.fkTipoLugar = {
+            tluId:$("#fkTipoLugar").val()
+        };
+         entidad.fkMunicipio = {
+            munId:$("#fkMunicipio").val()
+        };
+        
         var jentidad = JSON.stringify(entidad);
         var id = $("#id").val();
         httpConnect("/lugar/" + id, jentidad, "PUT", function (r) {
-            alert(r.message + "-" + r.data.nombre);
-            alert(r.message + "-" + r.data.lugDireccion);
-            alert(r.message + "-" + r.data.lugTelefono);
-            alert(r.message + "-" + r.data.lugCorreo);
-            alert(r.message + "-" + r.data.lugLatitud);
-            alert(r.message + "-" + r.data.lugLongitud);
-            alert(r.message + "-" + r.data.lugDescripcion);
-            alert(r.message + "-" + r.data.fkTipoLugar);
-            alert(r.message + "-" + r.data.fkMunicipio);
+            alert(r.message );
             window.location.replace("?p=listarLugar");
         });
         return false;
