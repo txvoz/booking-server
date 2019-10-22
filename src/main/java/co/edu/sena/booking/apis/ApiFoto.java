@@ -155,5 +155,4 @@ public class ApiFoto extends BasicApi implements IApi{
         }
         return retorno;
     }  
-    
 }
