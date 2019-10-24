@@ -1,0 +1,84 @@
+<!--
+Name:           Nelson Hernan Muñoz Burbano
+Subject:        Desarrollo de aplicaciones para dispositivos moviles 
+Code:           1959648
+-->
+<main>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h2>Editar tipo de alojamiento</h2>
+            <br>
+            <form id="frmEditarTipoAlojamiento">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-2">
+                            <label>Buscar:</label>
+                            <!--<input type="text" class="form-control" id="tipoABuscar" 
+                                   name="tipoABuscar" placeholder="Habitaciòn doble" required/>-->
+                            <button class="navbar-toggler" 
+                                    type="button" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapsibleNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" 
+                                 id="collapsibleNavbar">
+                                <ul class="nav nav-pills"> 
+                                    <!-- Item -->
+                                    <li class='nav-item dropdown'>
+                                        <a class='nav-link dropdown-toggle text-white' 
+                                           data-toggle='dropdown' href='#'>Tipo alojamiento</a>
+                                        <div class='dropdown-menu'>
+                                            <a class='dropdown-item' href='?p=hSencilla'    title="HabitaciÓn sencilla"     >HabitaciÓn sencilla</a>
+                                            <a class='dropdown-item' href='?p=hDoble'       title="HabitaciÓn doble"        >HabitaciÓn doble</a>
+                                            <a class='dropdown-item' href='?p=hTriple'      title="HabitaciÓn triple"       >HabitaciÓn triple</a>
+                                            <a class='dropdown-item' href='?p=hFamiliar'    title="HabitaciÓn familiar"     >HabitaciÓn familiar</a> 
+                                            <a class='dropdown-item' href='?p=hSocial'      title="HabitaciÓn social"       >HabitaciÓn social</a>
+                                            <a class='dropdown-item' href='?p=sSensilla'    title="Suite sencilla"          >Suite sencilla</a>
+                                            <a class='dropdown-item' href='?p=sDoble'       title="Suite doble"             >Suite doble</a>
+                                            <a class='dropdown-item' href='?p=sTriple'      title="Suite triple"            >Suite triple</a>
+                                            <a class='dropdown-item' href='?p=sDuplex'      title="Suite duplex"            >Suite duplex</a>
+                                            <a class='dropdown-item' href='?p=sFamiliar'    title="Suite familiar"          >Suite familiar</a>
+                                            <a class='dropdown-item' href='?p=apartamento'  title="Apartamento"             >Apartamento</a>
+                                            <a class='dropdown-item' href='?p=cabaña'       title="Cabaña"                  >Cabaña</a>
+                                            <a class='dropdown-item' href='?p=casa'         title="Casa"                    >Casa</a>
+                                            <a class='dropdown-item' href='?p=finca'        title="Finca"                   >Finca</a>
+                                            <a class='dropdown-item' href='?p=otro'         title="Otro"                    >Otro</a>
+
+                                        </div>
+                                    </li>    
+                                    <!-- -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead class="bg-primary navbar-dark text-white">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo de alojamiento</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div>
+                    <button type="submit" class="btn badge-success">Editar</button>
+                    <button type="reset" class="btn btn-warning">Limpiar</button>                    
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 alert alert-success hide">
+            <strong>Success!</strong><p></p>
+        </div>
+    </div>
+
+</main>
