@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -33,6 +34,15 @@ public class DepartamentoJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+    public List<Departamento> findByPaisId(Integer paisId){
+        List<Departamento> departamentos = null;
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Departamento> consulta = em.createNamedQuery("Departamento.findByPaisId",Departamento.class);
+        consulta.setParameter("paiId", paisId);
+        departamentos = consulta.getResultList();
+        return departamentos;
     }
 
     public void create(Departamento departamento) {

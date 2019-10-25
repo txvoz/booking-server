@@ -50,6 +50,7 @@ public class Pais implements Serializable {
     private String paiNombre;
     @Basic(optional = false)
     @Column(name = "paiCodigo", nullable = false, length = 45)
+    @Expose
     private String paiCodigo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkPais", fetch = FetchType.EAGER)
     private List<Departamento> departamentoList;

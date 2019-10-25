@@ -16,6 +16,7 @@ import java.util.Hashtable;
 import java.util.List;
 import spark.Request;
 import spark.Response;
+import spark.Spark;
 
 /**
  *
@@ -28,12 +29,6 @@ public class ApiDepartamento extends BasicApi implements IApi {
     private Gson gson = null;
     private DepartamentoJpaController departamentoController = null;
 
-    private ApiDepartamento() {
-        departamentoController = new DepartamentoJpaController(Utils.getEM());
-        gson = JsonTransformer.singleton().getGson();
-        init();
-    }
-
     public static ApiDepartamento singleton() {
         if (instance == null) {
             instance = new ApiDepartamento();
@@ -45,6 +40,35 @@ public class ApiDepartamento extends BasicApi implements IApi {
     @Override
     public String getPath() {
         return path;
+    }
+
+    private ApiDepartamento() {
+        departamentoController = new DepartamentoJpaController(Utils.getEM());
+        gson = JsonTransformer.singleton().getGson();
+        init();
+        Spark.get(path + "/byPais/:id", (rq, rs) -> this.byPaisId(rq, rs), JsonTransformer.singleton());
+    }
+
+    private Hashtable<String, Object> byPaisId(Request rq, Response rs) {
+        Hashtable<String, Object> retorno = new Hashtable<>();
+        try {
+            Integer id = Integer.parseInt(rq.params("id"));
+            List<Departamento> data = departamentoController.findByPaisId(id);
+            if (data.size() > 0) {
+                retorno.put("status", 200);
+                retorno.put("message", "departamento encontrados con exito!");
+            } else {
+                rs.status(404);
+                retorno.put("status", 404);
+                retorno.put("message", "No hay registros asociados con el id@" + id + "!");
+            }
+            retorno.put("data", data);
+        } catch (Exception e) {
+            rs.status(400);
+            retorno.put("status", 400);
+            retorno.put("message", e.getMessage());
+        }
+        return retorno;
     }
 
     @Override

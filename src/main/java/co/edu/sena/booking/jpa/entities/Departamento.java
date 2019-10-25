@@ -33,9 +33,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "departamento", catalog = "db_booking", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d")
-    , @NamedQuery(name = "Departamento.findByDepId", query = "SELECT d FROM Departamento d WHERE d.depId = :depId")
-    , @NamedQuery(name = "Departamento.findByDepNombre", query = "SELECT d FROM Departamento d WHERE d.depNombre = :depNombre")})
+    @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d"),
+    @NamedQuery(name = "Departamento.findByDepId", query = "SELECT d FROM Departamento d WHERE d.depId = :depId"), 
+    @NamedQuery(name = "Departamento.findByDepNombre", query = "SELECT d FROM Departamento d WHERE d.depNombre = :depNombre"), 
+    @NamedQuery(name = "Departamento.findByPaisId", query = "SELECT d From Departamento d WHERE d.fkPais.paiId = :paiId order by d.depNombre asc " )
+})
 public class Departamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
