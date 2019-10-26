@@ -36,7 +36,6 @@ public class ApiLugar extends BasicApi implements IApi {
     private ApiLugar() {
         lugarController = new LugarJpaController(Utils.getEM());
         gson = JsonTransformer.singleton().getGson();
-//        gson = new Gson();
         init();
     }
     /**

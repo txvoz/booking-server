@@ -27,6 +27,7 @@ public class ApiUsuario extends BasicApi implements IApi {
 
     private ApiUsuario() {
         usuarioController = new UsuarioJpaController(Utils.getEM());
+        gson = JsonTransformer.singleton().getGson();
         init();
     }
 
@@ -75,6 +76,7 @@ public class ApiUsuario extends BasicApi implements IApi {
                 oEntity.setUsuCorreo(nEntity.getUsuCorreo());
                 oEntity.setUsuTelefono(nEntity.getUsuTelefono());
                 oEntity.setUsuAvatar(nEntity.getUsuAvatar());
+                oEntity.setFkTipoIdentificacion(nEntity.getFkTipoIdentificacion());
                 usuarioController.edit(oEntity);
                 rs.status(201);
                 retorno.put("status", 201);

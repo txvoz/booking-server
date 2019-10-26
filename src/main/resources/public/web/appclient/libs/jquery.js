@@ -9831,17 +9831,18 @@ jQuery.ajaxTransport( function( options ) {
 				// Create the abort callback
 				callback = callback( "abort" );
 
-				try {
-
+				try 
+                                {
 					// Do send the request (this may raise an exception)
-					xhr.send( options.hasContent && options.data || null );
-				} catch ( e ) {
-
+					xhr.send(options.hasContent && options.data || null);
+				} catch ( e ) 
+                                {
 					// #14683: Only rethrow if this hasn't been notified as an error yet
 					if ( callback ) {
 						throw e;
 					}
 				}
+                                
 			},
 
 			abort: function() {
@@ -9849,7 +9850,9 @@ jQuery.ajaxTransport( function( options ) {
 					callback();
 				}
 			}
+                        
 		};
+                
 	}
 } );
 
