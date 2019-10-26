@@ -10,8 +10,8 @@ $(function (){
         jTipoAlojamiento = JSON.stringify(tipoAlojamiento);
         
         httpConnect("/tipoAlojamiento/"+id, jTipoAlojamiento, "PUT", function (r) {
-            alert(r.message + "-" + r.data.nombre);
-            window.location.replace("?p=listarTipoAlojamiento");
+            alert(r.message + "-" + r.data.talNombre);
+            window.location.replace("listarTipoAlojamiento");
         });       
         return false;
     });

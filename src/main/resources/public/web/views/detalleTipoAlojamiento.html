@@ -1,0 +1,53 @@
+<main>
+<!--
+    Name:           Nelson Hernan Muñoz Burbano
+    eMail:          nmb.sena@gmail.com
+    Subject:        Desarrollo de aplicaciones para dispositivos moviles 
+    Code:           1959648
+-->
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h2>Editar tipo de alojamiento</h2>
+            <br>
+            <form id="frmDetalleTipoAlojamiento">                
+                <input 
+                    type="hidden" 
+                    class="form-control"
+                    id="id" 
+                    name="id" 
+                    required/>
+                
+                <div class="col-12">
+                    <br>
+                    <div class="form-group">
+                         <label>
+                             Tipo alojamiento
+                         </label>
+                         <select
+                             class="form-control"
+                             name="tipoAlojamiento"
+                             id="tipoAlojamiento"
+                             required>                             
+                         </select> 
+                    </div>
+                    <br>
+                </div>
+                <div>
+                    <button type="submit" class="btn badge-success">Editar</button>
+                    <button type="reset" class="btn btn-warning">Limpiar</button>                    
+                </div>
+                <br>
+            </form>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 alert alert-success hide">
+            <strong>Success!</strong><p></p>
+        </div>
+    </div>
+
+</main>
+<script src="appclient/js/detalleTipoAlojamiento.js" type="text/javascript"></script>
