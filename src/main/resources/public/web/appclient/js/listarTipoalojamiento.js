@@ -1,6 +1,6 @@
 function detalle(target) {
     var id = $(target).data("id");
-    window.location.replace("?p=detalleAlojamiento&id=" + id);
+    window.location.replace("?p=detalleTipoAlojamiento&id=" + id);
 }
 
 function eliminar(target) {

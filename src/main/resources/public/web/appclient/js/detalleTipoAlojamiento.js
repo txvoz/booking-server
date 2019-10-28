@@ -1,31 +1,33 @@
-function cargarDetalle() {
+function cargarTipoAlojamiento(){
     var id = getParameterByName("id");
-    httpConnect("/alojamiento/" + id, null, "GET",function(r){
-        if(r.status!==200){
-            alert(r.message);
-            window.location.replace("?p=listarTipoAlojamiento");
+    var html = "<option value=''>Seleccionar</option>";
+    httpConnect("/tipoAlojamiento",{},"GET",function (r) {        
+        for(var i = 0; i<r.data.length; i++){
+            var tipoAlojamiento = r.data[i];
+            html += "<option value='"+tipoAlojamiento.talNombre+"'>"+tipoAlojamiento.talNombre+"</option>";            
         }
-        $("#catNombre").val(r.data.catNombre);
-        $("#catId").val(id);
-    },function(e){
-        alert(e);
-        window.location.replace("?p=listarTipoAlojamiento");
+        html += "<input type=\"text\" class=\"form-control\" id=\"talNombreOtro\" name=\"talNombreOtro\"/>";
+        
+        $("#id").val(id);
+        $("#tipoAlojamiento").html(html);
     });
 }
 
-$(function () {
-    cargarDetalle();
-    $("#frmUpdate").submit(function(){
-        var entidad = new Object();
-        entidad.catNombre = $("#catNombre").val();
-        var jentidad = JSON.stringify(entidad);
+$(function (){
+    cargarTipoAlojamiento();
+    
+    $("#frmDetalleTipoAlojamiento").submit(function (){
+        var tipoAlojamiento = new Object();
+        var jTipoAlojamiento;
+        var id = $("#id").val();
+                
+        tipoAlojamiento.talNombre = $("#tipoAlojamiento").val();  
+        jTipoAlojamiento = JSON.stringify(tipoAlojamiento);
         
-        var id=$("#catId").val();
-        httpConnect("/alojamiento/"+id,jentidad,"PUT",function(r){
-            alert(r.message+"-"+r.data.catNombre);
-            window.location.replace("listarTipoAlojamiento");
-        });
+        httpConnect("/tipoAlojamiento/"+id, jTipoAlojamiento, "PUT", function (r) {
+            alert(r.message + "-" + r.data.nombre);
+            window.location.replace("?p=listarTipoalojamiento");
+        });       
         return false;
-    });
+    });    
 });
-
